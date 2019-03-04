@@ -21,7 +21,7 @@ pipeline {
 	stage('Launch') {
 	    agent any
             steps {
-                sh 'docker run -d -p 8085:8085 SimpleDemo'
+                sh 'docker run -d -p 8085:8085 simpledemo'
 		sh 'echo Launched successfully!'
             }
         }
