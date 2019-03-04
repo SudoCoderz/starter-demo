@@ -1,7 +1,7 @@
 pipeline {
     agent none
     stages {
-        stage('Build') {
+        stage('Build Maven') {
 	 agent {
             docker {
             image 'maven:3-alpine'
@@ -12,10 +12,17 @@ pipeline {
                 sh 'mvn -f SimpleDemo/pom.xml clean install'
             }
         }
-	stage('Launch') {
+	stage('Docker preparation') {
 	    agent any
             steps {
                 sh 'docker build -f SimpleDemo/Dockerfile -t simpledemo .'
+            }
+        }
+	stage('Launch') {
+	    agent any
+            steps {
+                sh 'docker run -d -p 8085:8085 SimpleDemo'
+		sh 'echo Launched successfully!'
             }
         }
 
