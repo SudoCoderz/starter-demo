@@ -15,9 +15,7 @@ pipeline {
 	stage('Launch') {
 	    agent any
             steps {
-		sh 'cd SimpleDemo'
-		sh 'cd SimpleDemo'
-		sh 'echo ${pwd}'
+		sh 'cd /var/jenkinsHome/workspace/SimpleDemo/SimpleDemo'
 		sh 'ls'
                 sh 'docker build -t simpledemo .'
             }
