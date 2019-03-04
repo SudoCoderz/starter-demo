@@ -11,5 +11,11 @@ pipeline {
                 sh 'mvn -f SimpleDemo/pom.xml clean install'
             }
         }
+	stage('Launch') {
+            steps {
+                sh 'docker build -f SimpleDemo/Dockerfile -t SimpleDemo'
+            }
+        }
+
     }
 }
