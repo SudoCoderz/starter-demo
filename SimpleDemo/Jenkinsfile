@@ -15,7 +15,7 @@ pipeline {
 	stage('Launch') {
 	    agent any
             steps {
-                sh 'docker build -f SimpleDemo/Dockerfile -t SimpleDemo'
+                sh 'docker build -f SimpleDemo/Dockerfile -t simpledemo'
             }
         }
 
