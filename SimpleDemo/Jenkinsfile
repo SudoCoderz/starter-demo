@@ -17,6 +17,8 @@ pipeline {
             steps {
 		sh 'cd SimpleDemo'
 		sh 'cd SimpleDemo'
+		sh 'echo ${pwd}'
+		sh 'ls'
                 sh 'docker build -t simpledemo .'
             }
         }
